@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="temp-div justify-content-center align-items-center">
+<form id="mainForm" #f="ngForm" (ngSubmit)="saveForm(f)">
+
+  <div class="column-left">
+    <h3 class="title-left">Project Scope Fields</h3>
+    <div id="scope-fld-container">
+      <div class="scope-row" *ngFor="let opt of scopeFields; index as i" [style.background]="i % 2===0 ? 'white' : 'lightgray'">
+        <label>{{ opt.value }}</label>
+        <input type="checkbox" [checked]="opt.checked" (click)="toggleCheck(i)">
+      </div>
+    </div>
+  </div>
+
+  <div class="column-right">
+    <h3 class="title-right">Quantity Servey Fields</h3>
+    <div class="align-items-center">
+    <div class="fieldContainer" *ngFor="let fa of fieldArray; let i=index">
+      <div class="wrapper">
+        <div><label>Field</label></div>
+        <input [(ngModel)]="fa.fieldname" [ngModelOptions]="{standalone: true}" required name="field">
+      </div>
+      <div class="wrapper">
+        <div><label>Type</label></div>
+        <select [value]="fa.type" name="type" (change)="onSelect($event,i)">
+          <option *ngFor="let ft of fieldTypes" [attr.selected]="ft === fa.type ? true : null" [value]="ft">{{ft}}</option>
+          <!-- <option value="Number">Number</option>
+                <option value="Text">Text</option>
+                <option value="Formula">Formula</option> -->
+        </select>
+      </div>
+      <div class="wrapper" [style.visibility]="fa.type==='Formula' ? 'visible': 'hidden'">
+        <div><label>Formula</label></div>
+        <input  [(ngModel)]="fa.formula"
+        [ngModelOptions]="{standalone: true}" required name="formula">
+      </div>
+      <div class="delete-container">
+        <button class = " del-btn btn btn-primary" (click)="removeField(i)"><i class="fas fa-trash-alt"></i></button>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="btn-container">
+    <label class = "add-label"> Add Field </label>
+    <button class = " add-btn btn btn-primary" #addbtn (click)="addField()">  <i class="plus-icon fas fa-plus"></i></button>
+  </div>
+
+</form>
+</div>
+<div class="savebtn-container">
+  <a class = "return-link" routerLink="/formula" >Return to formular page</a>
+
+  <!-- <label>SAVE</label> -->
+  <button  class = "btn-primary btn save-btn" type="submit" form="mainForm">Save</button>
+</div>
+</div>

@@ -1,0 +1,135 @@
+<!-- <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">
+    Dropdown
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" type="button">Action</button>
+    <button class="dropdown-item" type="button">Another action</button>
+    <button class="dropdown-item" type="button">Something else here</button>
+  </div>
+</div> -->
+
+<div class="projectBox dropbtn btn-group">
+  <button type="button" class="btn Jae proj">{{display}}</button>
+  <button
+    type="button"
+    class="btn Jae dropdown-toggle dropdown-toggle-split"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  ></button>
+  <div class=" dropdown-menu box">
+    <span>
+      <input  class = "projectBox" type="text" [(ngModel)]="searchText"/>
+      <button type="submit"><i class="fa fa-search"></i></button
+    ></span>
+    <a *ngFor = " let project of getProjects()" class="dropdown-item"  (click)="getDropDownValue($event)" >{{project.pname}}</a>
+  </div>
+</div>
+<!-- Table on the left -->
+  <div class="  justify-content-center align-items-center">
+  <div class="row double-table">
+    <div class=" tbl col col-lg-6">
+      <table class="leftTable table-hover">
+        <thead >
+        <TR>
+          <th [attr.colspan]="num" class="titleBackground">
+            <label class="titleText">Resource Catalog</label>
+            <button class="shareIcon" name="export" (click)="exportChecked()">
+              <i class="fas fa-share"></i>
+            </button>
+            <button
+              role="button"
+              id="dropdownMenuLink"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              class="listIcon"
+            >
+              <i class="fas fa-list-ul"></i>
+            </button>
+            <div
+              class="selectMe dropdown-menu dropdown-menu-right"
+              aria-labelledby="dropdownMenuLink"
+            >
+              <a class="dropdown-item">
+                <input
+                  type="checkbox"
+                  [(ngModel)]="checked"
+                  (change)="selectAll($event)"
+                />
+                Select All</a
+              >
+              <a class="dropdown-item"
+                ><input type="checkbox"
+                (change)="deselectAll($event)"
+                [(ngModel)]="unchecked"
+                 />Deselect
+                All</a
+              >
+            </div>
+          </th>
+        </TR>
+
+
+    <!-- This starts the column-->
+
+
+
+    <tr id="column">
+      <th class = "coll" scope="col" *ngFor="let c of column">{{ c.toUpperCase() }}</th>
+    </tr>
+      </thead>
+    <!-- This Starts the row -->
+    <tbody >
+      <tr *ngFor="let datum of data ; let i = index">
+        <td *ngFor="let c of column; let j=index">
+          <input *ngIf="j===0" type="checkbox"
+            [checked]="datum.checked"
+            (click)="selectRow(i)"
+          />
+          {{ datum[c] }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!--| paginate:{itemsPerPage: 10, currentPage:p
+   <div id="pagination">
+  <pagination-controls class = "page-con" (pageChange)="p=$event"></pagination-controls>
+</div> -->
+</div>
+
+
+  <!-- Table on the right -->
+    <div class=" tbl col col-lg-6 ">
+  <table class="rightTable table-hover">
+    <TR>
+      <th [attr.colspan]="num" class="titleBackground">
+        <label class="titleText">Project</label>
+        <button class="trashIcon" (click)="removeChecked()">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </th>
+    </TR>
+    <!-- This starts the column -->
+    <tr id="column">
+      <th scope="col" *ngFor="let c of column">{{ c.toUpperCase() }}</th>
+    </tr>
+    <tbody *ngFor="let export of exports; let i = index">
+      <tr>
+        <td *ngFor="let c of column; let j=index">
+          <input *ngIf="j===0" type="checkbox"
+            [checked]="export['right-tbl-checked']"
+            (click)="toggleExported(i)"/>
+            {{ export[c] }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  </div>
+</div>
+<button (click) = "submitData()" type="submit" class="btn-primary btn buttonStyle">
+<i class="fas fa-check"></i> Submit
+</button>

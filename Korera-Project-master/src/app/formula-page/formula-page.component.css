@@ -1,0 +1,94 @@
+table {
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 1px black;
+  align-items: center;
+  width: 90%;
+  margin-top: 5em;
+}
+
+.titleBackground {
+  height: 45px;
+  background-color: #a9a9a9;
+  border-color: #a9a9a9;
+  color: white;
+  /* font-size: medium; */
+}
+tr {
+  height: 35px;
+}
+th {
+  padding: 2px;
+}
+td {
+  padding-left: 5px;
+}
+.titleText {
+  margin-left: 3px;
+}
+#column th {
+  border: 0.5px solid black;
+}
+#column {
+  height: 30px;
+  position: relative;
+  /* border: 0.5px solid black; */
+  text-align: center;
+  background-color: rgb(235, 231, 231);
+  /* border-color: rgb(235, 231, 231); */
+}
+
+.dropdown {
+  float: right;
+  position: relative;
+  right: 100px;
+}
+
+.buttonStyle {
+  color: white;
+  background-color: #fe6845;
+  border-color: #fe6845;
+  float: right;
+  margin-top: 1rem;
+  margin-right: 5.5rem;
+  /* position: relative;
+  top: 100px;
+  right: 100px; */
+}
+
+.editQuantity {
+  float: left;
+  margin-top: 1rem;
+  margin-left: 5.5rem;
+  /* position: relative;
+  top: 100px;
+  left: 100px; */
+}
+
+input {
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+input:hover {
+  border: solid;
+  border-color: #eb9788;;
+  box-shadow: 0px 0px 14px #fe6745f6;
+  -moz-box-shadow: 0px 0px 14px #fe6745f6;
+  -webkit-box-shadow: 0px 0px 14px #fe6745f6;
+
+}
+
+input:focus {
+  box-shadow: 0px 0px 14px #fe6745f6;
+  -moz-box-shadow: 0px 0px 14px #fe6745f6;
+  -webkit-box-shadow: 0px 0px 14px #fe6745f6;
+}
+
+#pagination {
+  margin-top: 1rem;
+}
+.page-con /deep/ .ngx-pagination .current {
+  background: #fe6845;
+}

@@ -1,0 +1,43 @@
+<!-- This starts the drop down -->
+
+
+<!-- This div contains all body -->
+<div class="container">
+<div class="tableMain justify-content-center align-items-center">
+  <form action="" ng-submit="submit()">
+    <!-- This line starts the table contents -->
+    <TABLE>
+      <TR>
+        <th [attr.colspan]="num" class="titleBackground">
+          <label class="titleText">QUANTITY SURVEY</label>
+        </th>
+      </TR>
+      <!-- This starts the column -->
+      <tr id="column">
+        <th scope="col" *ngFor="let c of column">{{ c.toUpperCase() }}</th>
+      </tr>
+      <!-- This Starts the row -->
+      <tbody *ngFor="let datum of data | paginate:{itemsPerPage: 10, currentPage:p}">
+        <tr>
+          <td *ngFor="let c of column">
+            <input
+              type="text"
+              [(ngModel)]="datum[c]" [ngModelOptions]="{standalone: true}"
+              name="{{datum[c]}}"
+              class="dataElement"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </TABLE>
+    <div id="pagination">
+    <pagination-controls class = "page-con" (pageChange)="p=$event"></pagination-controls>
+  </div>
+
+    <a routerLink="/template" class="editQuantity">Edit Quantity Survey Template</a>
+    <button  type="submit" class="btn-primary btn buttonStyle">
+    <i class="fas fa-check"></i> Submit
+    </button>
+  </form>
+</div>
+</div>

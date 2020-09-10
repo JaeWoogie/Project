@@ -1,0 +1,29 @@
+.login-div{
+  height: auto;
+  padding-top: 4rem;
+  max-height: none;
+}
+.login-heading{
+  font-size: 3.5rem;
+  color: #fe6845;
+  text-shadow: 1.5px 1.5px #c9753d;
+}
+.login-button{
+  background-color: #ef4339;
+  border-color: #ef4339;
+}
+.signup-button{
+  float:left;
+  background-color: #ef4339;
+  border-color: #ef4339;
+}
+.forgot-password{
+  float :right;
+  color: black;
+}
+.has-error input[type="email"],
+.has-error input[type="password"] {
+    border-color: rgb(216, 12, 12);
+    color: rgb(230, 14, 14);
+
+}

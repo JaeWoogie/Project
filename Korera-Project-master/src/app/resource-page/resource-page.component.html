@@ -1,0 +1,129 @@
+  <div id="maintableContainer">
+    <table class="resource-table">
+      <thead>
+        <tr>
+          <th [attr.colspan]="num">
+            <div id="topcontainer">
+              <form id="search">
+                <input
+                  id="searchbar"
+                  type="text"
+                  placeholder="Keyword"
+                  [(ngModel)]="searchText"
+                  name="searchMe"
+                />
+                <button class="resc-button" type="submit"><i class="fa fa-search"></i></button>
+              </form>
+              <label id="projlabel">PROJECT</label>
+              <div class=" dropdown">
+                <button
+                 class="resc-button"
+                  role="button"
+                  id="dropdownMenuLink"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="plus-icon fas fa-plus"></i>
+                </button>
+                <div
+                  class="dropdown-menu dropdown-menu-right"
+                  aria-labelledby="dropdownMenuLink"
+                >
+               <a class="dropdown-item" (click)="addItem()"><i class="fas fa-align-left"></i>  Add Row</a>
+          <a class="dropdown-item" (click)="addColumn()"><i class="fas fa-columns"></i>  Add Column</a>
+          <input hidden = "hidden" class="dropdown-item" type="file" #csvReader name="Upload CSV" (change)="uploadListener($event)" id="txtFileUpload"  accept=".csv" />
+          <a class="dropdown-item" (click) = "csvReader.click()" ><i class="far fa-file-excel"></i>   Import CSV</a>
+
+                </div>
+              </div>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tr id="headerbar">
+        <th
+          style="text-align:center; border: 0.5px solid black;"
+          scope="col"
+          *ngFor="let c of columns">
+          {{ c.toUpperCase() }}
+        </th>
+      </tr>
+      <tbody>
+        <tr
+          *ngFor="
+            let record of getRecords()
+              | paginate: { itemsPerPage: 10, currentPage: p }">
+          <!-- <td>{{record.name}}</td>
+                  <td>{{record.cost_code}}</td> -->
+          <td *ngFor="let c of columns">
+            <input
+              type="text"
+              [(ngModel)]="record[c]"
+              [ngModelOptions]="{ standalone: true }"
+              name="{{ record[c] }}"
+              class="dataElement"
+            />
+          </td>
+        </tr>
+      </tbody>
+
+      <!-- <tbody *ngFor="let record of records">
+          <td> <span>{{record.cost_code}}</span> </td>
+          <td> <span>{{record.name}}</span> </td>
+        </tbody> -->
+           <ng-container *ngIf="newEdit">
+          <tr>
+            <td *ngFor="let col of columns">
+              <form *ngIf="!editMap[col]">
+                <button class="edit-btn" type="button" (click)="submitEntry(col,c.value)"><i class="far fa-check-circle"></i></button>
+                <button class="edit-btn" type="button"(click)="cancelEntry(col)"><i class="far fa-times-circle"></i></button>
+                <input #c type="text">
+              </form>
+              <!-- show span once editing is finished -->
+              <span *ngIf="editMap[col]">{{ tempObj[col] }}</span>
+            </td>
+          </tr>
+        </ng-container>
+    </table>
+    <div id="pagination">
+      <pagination-controls
+        class="page-con"
+        (pageChange)="p = $event"
+      ></pagination-controls>
+    </div>
+  </div>
+
+<!-- Jae part
+<TABLE border="1">
+  <TR>
+    <th COLSPAN="2" class="titleBackground">
+      <input type="text" placeholder="Keyword" name="search" />
+      <button type="submit"><i class="fa fa-search"></i></button>
+      <label class="titleText">Resource Catalog</label>
+      <div class="dropbtn">
+        <button
+          href="#"
+          role="button"
+          id="dropdownMenuLink"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          +
+        </button>
+        <div
+          class="dropdown-menu dropdown-menu-right"
+          aria-labelledby="dropdownMenuLink"
+        >
+          <a class="dropdown-item" (click)="addColumns()">Add Row</a>
+          <a class="dropdown-item" (click)="addColumns()">Add Column</a>
+          <a class="dropdown-item" (click)="addColumns()">Import CSV</a>
+        </div>
+      </div>
+    </th>
+  </TR>
+  <th id="column">RESOURCE NAME</th>
+  <th id="column">RESOURCE CODE</th>
+  <th *ngFor="let i of listItem">{{ i }}</th>
+</TABLE> -->

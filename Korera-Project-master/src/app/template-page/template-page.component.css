@@ -1,0 +1,178 @@
+
+.temp-div{
+  margin-left: auto;
+  margin-right: auto;
+  border: 0.5px solid  black;
+  align-items: center;
+  width: 90%;
+  padding-top: 0.3rem;
+  padding-bottom: 2rem;
+
+  margin-top: 2em;
+}
+
+.fieldContainer {
+  margin-bottom: 10px;
+  width: 100%;
+  min-height: 50px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-width: 1px;
+  border-color: gray;
+  /*justify-content: space-evenly;*/
+  background-color: lightgray;
+  padding-left: 10px;
+
+}
+#addbtn {
+  height: 100%
+}
+.btn-container {
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+  display: flex;
+  padding-right: 1rem;
+
+}
+.savebtn-container{
+  width: 100%;
+  align-content: center;
+  align-items: center;
+}
+
+input[type="text"] {
+      border-radius: 7px;
+}
+
+
+/* use align-items within a flex container */
+.delete-container {
+  display: flex;
+  align-items: center;
+}
+
+.sub-entry {
+  width: 40%;
+  float: left;
+  /* border: solid */
+}
+input[type="checkbox"] {
+  float: right;
+  margin-right: 25px;
+  vertical-align: bottom
+}
+
+.row {
+  display: flex; /* equal height of the children */
+  width: 100%;
+}
+
+.col {
+  flex: 1; /* additionally, equal width */
+
+  padding: 1em;
+  /* border: solid; */
+}
+.title {
+  background-color: lightgray;
+  min-height: 30px;
+}
+
+.left-table-td {
+  width: 700px;
+}
+
+    .title-left {
+      padding-left: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      background-color: lightgray;
+      border-color: gray;
+    }
+    .title-right {
+      padding-left: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      background-color: lightgray;
+      border-color: gray;
+    }
+
+ng-container {
+  width: 100%;
+  min-height: 50px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border:none;
+  border-color: gray;
+  justify-content: space-evenly;
+  background-color: lightgray;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}
+
+.wrapper {
+  /* border: solid;
+  display:flex;
+  align-items:center; */
+
+}
+
+.scope-row {
+      min-height: 65px;
+      display: flex;
+      align-items: center;
+      border-color: lightslategray;
+      padding: 5px;
+    }
+    .scope-row > input {
+      margin-left: auto;
+}
+.column-left{
+  float: left;
+  width: 40%;
+  border-right: lightslategray;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.column-right {
+  width: 60%;
+  float: right;
+     padding-right: 20px;
+}
+/* form {display: flex;} */
+.save-btn{
+  color: white;
+  background-color: #fe6845;
+  border-color: #fe6845;
+  float: right;
+  margin-top:1rem;
+  margin-right: 2.9rem;
+
+}
+.return-link{
+
+  float: left;
+  margin-top: 1.4rem;
+  margin-left: 2.9rem;
+}
+.add-btn{
+  color: white;
+  background-color: #fe6845;
+  border-color: #fe6845;
+}
+.add-label{
+  padding-right:0.5rem;
+}
+.del-btn{
+  color: white;
+  background-color: #fe6845;
+  border-color: #fe6845;
+  float: right;
+}
